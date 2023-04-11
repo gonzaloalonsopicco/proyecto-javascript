@@ -1,0 +1,12 @@
+[
+    {"id":1, "marca":"Apple", "modelo":"iphone 13", "ram":"4gb", "alamcenamiento":"128gb" , "precio":309998, "img":"imagenes/iPhone13.jpg"}, 
+    {"id":2, "marca":"Apple", "modelo":"iPhone 13 Pro Max", "ram":"6gb", "alamcenamiento":"128gb", "precio":425198, "img":"imagenes/iPhone13_Pro_Max.jpg"},
+    {"id":3, "marca":"Apple", "modelo":"iphone 12", "ram":"4gb", "alamcenamiento":"64gb", "precio":202100, "img":"imagenes/iphone12.jpg"}, 
+    {"id":4, "marca":"Apple", "modelo":"iphone 11", "ram":"4gb", "alamcenamiento":"64gb", "precio":158099, "img":"imagenes/logo.png"}, 
+    {"id":5, "marca":"Samsung", "modelo":"Galaxy A53 5G", "ram":"6gb", "alamcenamiento":"128gb", "precio":86999, "img":"imagenes/logo.png"}, 
+    {"id":6, "marca":"Samsung", "modelo":"Galaxy S22 Ultra", "ram":"12gb", "alamcenamiento":"256gb", "precio":219999, "img":"imagenes/logo.png"}, 
+    {"id":7, "marca":"Samsung", "modelo":"Galaxy S22", "ram":"8gb", "alamcenamiento":"128gb", "precio":159999, "img":"imagenes/logo.png"}, 
+    {"id":8, "marca":"Samsung", "modelo":"Galaxy Z Flip3 5G", "ram":"8gb", "alamcenamiento":"128gb", "precio":139999, "img":"imagenes/logo.png"}, 
+    {"id":9, "marca":"Apple", "modelo":"iphone 13", "ram":"4gb", "alamcenamiento":"128gb", "precio":1000, "img":"imagenes/logo.png"}
+]
+     

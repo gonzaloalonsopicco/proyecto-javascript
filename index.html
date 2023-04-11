@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link href="bootstrap/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="estilo.css">
+    <title>CELLMANIA</title>
+</head>
+
+<body class="body">
+
+    <!---   HEADER   --->
+
+    <header>
+        <div class="header">
+            <a href="index.html" class="volverAInicio">
+                <p class="logo">CELLMANIA</p>
+            </a>
+
+            <div id="abrir-carrito">
+                <svg class="carritoIcono" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-cart"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                </svg>
+                <span class="numeroCarrito" id="contador-carrito">0</span>
+            </div>
+
+            <!---   CARRITO MODAL   --->
+
+            <div class="carritoModalAfuera" id="carrito-modal">
+                <div class="carritoModalAdentro">
+                    <div class="carritoModalDivArriba">
+                        <p class="carritoModalProductosAgregados">agrega productos a tu carrito: llevas <span
+                                class="carritoModalProductosAgregados" id="contador-carrito2"> 0 </span> productos</p>
+                        <button class="carritoModalBotonSalir" id="cerrar-carrito">X</button>
+                    </div>
+
+                    <div class="carritoModalDivMedio" id="carrito-contenedor">
+
+                        <!--
+                            <div class="carritoModalProductos ">
+                <img class="carritoModalImagen" src="${productoAgregar.img}">
+                <div class="carritoModalTodo">
+                    <p class="carritoModalProductoNombre">${productoAgregar.modelo} </p>
+                    <div class="carritoModalProductoPrecio">
+                        <p class="carritoModalLetra" id="und${productoAgregar.id}">Und:${productoAgregar.cantidad}</p>
+                        <p class="carritoModalLetra">$${productoAgregar.precio} </p>
+                    </div>
+                </div>
+                <button class="carritoModalSacarProductos" id="eliminar${productoAgregar.id}">-</button>
+                </div>
+                            -->
+
+                    </div>
+                    <div class="carritoModalDivAbajo">
+                        <p class="carritoModalLetra">total: $<span class="carritoModalLetra cambioDeLetra" id="precio-total">0</span>
+                        </p>
+                        <button class="carritoModalBotonComprar" id="boton-comprar-modal">comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!---   SECTION   --->
+
+
+
+    <section id="inicio">
+
+        <div class="cuerpo" id="ocultar-section">
+
+            <aside class="aside asideDiv modelos">
+
+                <h2 class="asideSubtitulo">categorías</h2>
+                <div class="asideDivModelos asideLetraModelos">
+                    <button class="btn btn-primary articleBotonCarrito" id="aside-filtro-todos" value="todos">Todos</button>
+                    <button class="btn btn-primary articleBotonCarrito" id="aside-filtro-apple" value="Apple">Apple</button>
+                    <button class="btn btn-primary articleBotonCarrito" id="aside-filtro-samsung" value="Samsung">Samsung</button>
+                    <button class="btn btn-primary articleBotonCarrito" id="aside-filtro-motorola" value="Motorola">Motorola</button>
+                    <button class="btn btn-primary articleBotonCarrito" id="aside-filtro-xiaomi" value="Xiaomi">Xiaomi</button>
+                </div>
+
+                <div class="asideLetraModelos">ordenar por </div>
+
+                <div class="asideDivModelos asideLetraModelos">
+                    <button class="btn btn-primary articleBotonCarrito" id="aside-filtro-mayor" value="Mayor">Mayor</button>
+                    <button class="btn btn-primary articleBotonCarrito" id="aside-filtro-menor" value="Menor">Menor</button>
+                    <button class="btn btn-primary articleBotonCarrito" id="aside-filtro-sinfiltro" value="sin">sin filtro</button>
+                </div>
+
+            </aside>
+
+            <article class="article" id="inicio-ocultar">
+
+                <img id="spinner" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="Spinner" width="100%">
+
+                <div class="articleGridFotos" id="contenedor-productos">
+
+                    <!-- 
+                <div class="producto">
+
+                    <div class="articleDivProductos">
+                        <h3 class="articleTituloProductos">${item.modelo}</h3>
+                        <div class="articleDivFotosProductos">
+                            <img  src="${item.img}" class="articleFotosProductos">
+                        </div>
+                        <div class="articleDivBotonPrecio">
+                            <button id="agregar${item.id}" class="btn btn-primary articleBotonCarrito">Agregar</button>
+                           <p class="articlePrecio">$${item.precio} </p>
+                        </div>
+                    </div>
+
+                 </div>
+               -->
+                </div>
+
+            </article>
+
+        </div>
+
+
+
+        <!---   FORMULARIO   --->
+
+
+
+        <article class="formularioAfuera" id="mostrar-formulario">
+
+            <div class="formularioAdentro">
+
+                <p class="formularioTitulo">ingresa tus datos</p>
+
+                <div class="formularioDivProductosDatos">
+
+                    <div class="formularioDivProductos">
+                        <div id="producto-formulario">
+
+                            <!-- 
+                        <div class="carritoModalProductos ">
+                            <img class="carritoModalImagen" src="${productoAgregar.img}">
+                            <div class="carritoModalTodo">
+                                <p class="carritoModalProductoNombre">${productoAgregar.modelo} </p>
+                                <div class="carritoModalProductoPrecio">
+                                    <p class="carritoModalLetra" id="und${productoAgregar.id}">Und:${productoAgregar.cantidad}</p>
+                                    <p class="carritoModalLetra">$${productoAgregar.precio} </p>
+                                </div>
+                            </div>
+                            <button class="carritoModalSacarProductos" id="eliminar${productoAgregar.id}">-</button>
+                        </div>
+                        -->
+
+                        </div>
+                        <div class="formularioDivPrecioTotal">
+                            <p class="carritoModalProductoNombre">Total: $</p>
+                            <span class="carritoModalProductoNombre cambioDeLetra" id="formulario-precio-total"> 0 </span>
+                        </div>
+                    </div>
+
+                    <form class="formularioDivDatos" id="forms">
+
+                        <div class="form-group formularioDatosDivs">
+                            <label for="nombre">Nombre</label>
+                            <input class="form-control" type="text" id="nombre" value="Matías Hernández  ">
+                        </div>
+                        <div class="form-group formularioDatosDivs">
+                            <label for="email">Email</label>
+                            <input class="form-control" type="email" id="email" required="none"
+                                value="MatiasHernandez@email.com">
+                        </div>
+                        <div class="form-group formularioDatosDivs">
+                            <label class="" for="formularioNumero">Telefono</label>
+                            <input class="form-control" type="number" id="formularioNumero" value="1553441545615">
+                        </div>
+                        <div class="form-group formularioDatosDivs">
+                            <label class="" for="numeroTarjeta">Número de tarjeta</label>
+                            <input class="form-control" type="text" name="" id="numeroTarjeta"
+                                value="1213-9101-5678-1234">
+                        </div>
+                        <div class="form-group formularioDatosDivs cuotas">
+                            <p class="carritoModalLetra">convertidor</p>
+                            <div class="formularioDivConvertidor">
+                                <button class="btn btn-primary articleBotonCarrito" id="boton-cambio-pesos" type="submit"
+                                >pagar con pesos</button>
+                            <button class="btn btn-primary articleBotonCarrito" id="boton-cambio-dolares" type="submit"
+                                >pagar con dolares</button>
+
+                            </div>
+                           
+
+                        </div>
+                        <button class="btn btn-primary formularioBotonComprar" id="boton-finalizar-compra" type="submit"
+                            value="Confirmar compra">confirmar compra</button>
+
+                    </form>
+                </div>
+            </div>
+
+        </article>
+
+    </section>
+
+    <!---   FOOTER   --->
+
+    <footer class="footer">
+
+        <a href="index.html" class="volverAInicio">
+            <p class="logofooter">CELLMANIA</p>
+        </a>
+
+        <div>
+            <p class="Copyright">©Copyright 2022 CELLMANIA - Todos los derechos reservados</p>
+        </div>
+
+    </footer>
+
+    <script src="productos.js"></script>
+    <script src="document.js"></script>
+    <script src="index.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
